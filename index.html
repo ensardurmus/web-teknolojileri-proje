@@ -3,48 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="indexStil.css">
+    
+   
+    <link rel="stylesheet" href="indexStil.css">
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
     <title>Hakkında | Kişisel Web Sitem</title>
+
+    <style>
+        /* Özgeçmiş sayfasıyla aynı bütünlüğü sağlamak için */
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Muhammet Ensar Durmuş</h1>
-        <nav>
-            <a href="index.html">Hakkında</a> |
-            <a href="cv.html">Özgeçmiş</a>
-        </nav>
+    
+    
+    <header class="bg-white shadow-sm py-3 mb-5">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center">
+            <h1 class="h4 mb-0 text-dark fw-bold">Muhammet Ensar Durmuş</h1>
+            <nav class="nav nav-pills">
+                
+                <a class="nav-link active bg-dark text-white" href="index.html">Hakkında</a>
+                <a class="nav-link text-secondary" href="cv.html">Özgeçmiş</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section class="duzen1">
-            <h2>Hakkımda</h2>
-            <p>Sakarya Üniversitesi'nde Bilgisayar Mühendisliği öğrencisiyim. Verilen ödevlere göre veya laboratuvarlara göre gömülü sistemler ve yazılım geliştirmeye çalışıyorum.</p>
+  
+    <main class="container mb-5 flex-grow-1">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                
+               
+                <section class="mb-4">
+                    <h2 class="h5 text-secondary border-bottom pb-2 mb-3">Hakkımda</h2>
+                    <div class="card border-0 shadow-sm rounded-3 mb-4">
+                        <div class="card-body p-4 text-dark">
+                            <p class="mb-0">Sakarya Üniversitesi'nde Bilgisayar Mühendisliği öğrencisiyim. Verilen ödevlere veya laboratuvarlara göre gömülü sistemler ve yazılım geliştirmeye çalışıyorum.</p>
+                        </div>
+                    </div>
+                </section>
 
-        </section>
+                
+                <section class="mb-4">
+                    <h2 class="h5 text-secondary border-bottom pb-2 mb-3">Hobilerim ve Etkinliklerim</h2>
+                    <div class="card border-0 shadow-sm rounded-3 mb-4">
+                        <div class="card-body p-4">
+                            <ul class="list-group list-group-flush mb-0">
+                                <li class="list-group-item px-0 py-2 border-0">
+                                    <span class="text-dark"><strong>Fenerbahçe</strong> branş fark etmeksizin izlemek</span>
+                                </li>
+                                <li class="list-group-item px-0 py-2 border-0 text-dark">Futbol oynamak ve takip etmek</li>
+                                <li class="list-group-item px-0 py-2 border-0 text-dark">Maç sonuçlarını tahmin etmeye çalışmak</li>
+                                <li class="list-group-item px-0 py-2 border-0 text-dark">Basketbol maçları izlemek (şampiyonluklar kaybettikten sonra alıştım)</li>
+                                <li class="list-group-item px-0 py-2 border-0 text-dark">Fitness ve güç antrenmanları yapmak</li>
+                                <li class="list-group-item px-0 py-2 border-0 text-dark">Teknoloji projeleri geliştirmek</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
 
-        <section class="duzen1">
-            <h2>Hobilerim ve Etkinliklerim</h2>
-            <ul>
-				<li class="altcizgi"><strong>Fenerbahçe</strong> branş fark etmeksizin <strong>Fenerbahçe</strong> izlemek</li>
-                <li>Futbol oynamak ve takip etmek</li>
-				<li>Maç sonuçlarını tahmin etmeye çalışmak</li>
-				<li>Basketbol maçları izlemek (şampiyonluklar kaybettikten sonra alıştım)</li>
-                <li>Fitness ve güç antrenmanları yapmak</li>
-                <li>Teknoloji projeleri geliştirmek</li>
-            </ul>
-        </section>
+               
+                <section>
+                    <h2 class="h5 text-secondary border-bottom pb-2 mb-3">Medya ve Bağlantılar</h2>
+                    <div class="card border-0 shadow-sm rounded-3">
+                        <div class="card-body p-4 text-center">
+                           
+                            <img src="images/profil.jpeg" alt="Muhammet Ensar Durmuş Profil Fotoğrafı" class="img-fluid rounded-circle shadow-sm mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+                            <br>
+                            
+                            <a href="https://github.com/ensardurmus" target="_blank" class="btn btn-outline-dark px-4 py-2 fw-semibold">GitHub Profilim</a>
+                        </div>
+                    </div>
+                </section>
 
-        <section class="duzen1">
-            <h2>Medya ve Bağlantılar</h2>
-            
-            <img src="images/profil.jpeg" alt="Muhammet Ensar Durmuş Profil Fotoğrafı" width="200">
-            <br>
-            <a href="https://github.com/ensardurmus" target="_blank" class="linkDuzen">GitHub Profilim</a>
-        </section>
+            </div>
+        </div>
     </main>
 
-    <footer>
-        <p>G231210064 - Web Teknolojileri Proje Ödevi</p>
+    <!-- Footer -->
+    <footer class="bg-white border-top py-4 mt-auto">
+        <div class="container text-center">
+            <p class="text-muted small mb-0">G231210064 - Web Teknolojileri Proje Ödevi</p>
+        </div>
     </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

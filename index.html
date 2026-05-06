@@ -18,22 +18,24 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+			/* ekran yüksekliğinin %100 ünü kullanmak için 100vh koyduk */
         }
     </style>
 </head>
 <body>
     
-    
+    <!-- mb-5 margin bottom 5 margin dış boşluk içindi css te 5 de 5 birim boşluk bırak bottom alttan yani-->
     <header class="bg-white shadow-sm py-3 mb-5">
         <div class="container d-flex flex-wrap justify-content-between align-items-center">
             <h1 class="h4 mb-0 text-dark fw-bold">Muhammet Ensar Durmuş</h1>
             <nav class="nav nav-pills">
-                
+                <!-- nav kısmında bulunduğumuz sınıfı active yaptık açıldığında olduğumuz sınıf yeni html dosyası ekledikçe buraya da ekleme yapılır -->
                 <a class="nav-link active bg-dark text-white" href="index.html">Hakkında</a>
                 <a class="nav-link text-secondary" href="cv.html">Özgeçmiş</a>
 				<a class="nav-link text-secondary" href="sehrim.html">Şehrim</a>
 				<a class="nav-link text-secondary" href="takimim.html">Takımım</a>
 				<a class="nav-link text-secondary" href="ilgialanlarim.html">İlgi Alanlarım</a>
+				<a class="nav-link text-secondary" href="iletisim.html">İletişim</a>
             </nav>
         </div>
     </header>
@@ -46,6 +48,8 @@
                
                 <section class="mb-4">
                     <h2 class="h5 text-secondary border-bottom pb-2 mb-3">Hakkımda</h2>
+					<!-- border-0 ile kenarlıkları kaldırdık rounded ile de kenarlara kavis verdik alttan dış boşluk 4 birim mb-4 ile-->
+					 <!-- shadow-sm az gölge efekti için kullandık fazla olmasın istedim -->
                     <div class="card border-0 shadow-sm rounded-3 mb-4">
                         <div class="card-body p-4 text-dark">
                             <p class="mb-0">Sakarya Üniversitesi'nde Bilgisayar Mühendisliği öğrencisiyim. Verilen ödevlere veya laboratuvarlara göre gömülü sistemler ve yazılım geliştirmeye çalışıyorum.</p>
@@ -57,10 +61,13 @@
                 <section class="mb-4">
                     <h2 class="h5 text-secondary border-bottom pb-2 mb-3">Hobilerim ve Etkinliklerim</h2>
                     <div class="card border-0 shadow-sm rounded-3 mb-4">
+						<!-- p-4 de padding yani iç boşluk 4 birim olsun kartın -->
                         <div class="card-body p-4">
                             <ul class="list-group list-group-flush mb-0">
+								<!-- list-group-flush da listenin dış çevresini kaldırır sadece satır arası çizgileri tutar ki modern görüntü için -->
                                 <li class="list-group-item px-0 py-2 border-0">
                                     <span class="text-dark"><strong>Fenerbahçe</strong> branş fark etmeksizin izlemek</span>
+									<!-- px de iç sağ sol boşluk için x py de iç üst alt boşluk için kullandık -->
                                 </li>
                                 <li class="list-group-item px-0 py-2 border-0 text-dark">Futbol oynamak ve takip etmek</li>
                                 <li class="list-group-item px-0 py-2 border-0 text-dark">Maç sonuçlarını tahmin etmeye çalışmak</li>
@@ -91,6 +98,8 @@
     </main>
 
     <!-- Footer -->
+	 <!-- border-top ile üst kısma ince bir çizgi ekledik eklemesek de olurdu görsel olarak hoşuma gitti -->
+	  <!-- mt-auto margin auto ile ekran kısa da olsa uzun da olsa en altta olur mt-auto ile -->
     <footer class="bg-white border-top py-4 mt-auto">
         <div class="container text-center">
             <p class="text-muted small mb-0">G231210064 - Web Teknolojileri Proje Ödevi</p>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim | Kişisel Web Sitem</title>
+    <link rel="stylesheet" href="indexStil.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Vue.js'i projeye dahil ediyoruz (Yarınki görev için) -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .form-label {
+            font-weight: 500;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Üst Menü -->
+    <header class="bg-white shadow-sm py-3 mb-5">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center">
+            <h1 class="h4 mb-0 text-dark fw-bold">Muhammet Ensar Durmuş</h1>
+            <nav class="nav nav-pills">
+                <a class="nav-link text-secondary" href="index.html">Hakkında</a>
+                <a class="nav-link text-secondary" href="cv.html">Özgeçmiş</a>
+                <a class="nav-link text-secondary" href="sehrim.html">Şehrim</a>
+                <a class="nav-link text-secondary" href="takimimiz.html">Takımımız</a>
+                <a class="nav-link text-secondary" href="ilgialanlarim.html">İlgi Alanlarım</a>
+                <a class="nav-link active bg-dark text-white" href="iletisim.html">İletişim</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mb-5 flex-grow-1">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                
+                <section class="bg-white p-5 rounded-4 shadow-sm border-top border-4 border-dark" id="app">
+                    <h2 class="h3 fw-bold mb-4 text-center">İletişim Formu</h2>
+                    <p class="text-secondary text-center mb-4">Lütfen aşağıdaki formu eksiksiz doldurunuz.</p>
+                    
+                    <!-- Form 8. Gün PHP'ye gönderilecek, şimdilik action boş -->
+                    <form id="iletisimFormu" action="#" method="POST" novalidate>
+                        
+                        <!-- Text Input -->
+                        <div class="mb-3">
+                            <label for="adSoyad" class="form-label">Adınız Soyadınız <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="adSoyad" name="adSoyad" placeholder="Örn: Muhammet Ensar Durmuş">
+                            <div class="invalid-feedback" id="adSoyadHata">Ad alanı boş bırakılamaz!</div>
+                        </div>
+
+                        <!-- Email Input -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">E-Posta Adresiniz <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="ornek@sakarya.edu.tr">
+                                <div class="invalid-feedback" id="emailHata">Geçerli bir e-posta giriniz!</div>
+                            </div>
+                            
+                            <!-- Tel Input -->
+                            <div class="col-md-6 mb-3">
+                                <label for="telefon" class="form-label">Telefon Numaranız <span class="text-danger">*</span></label>
+                                <input type="tel" class="form-control" id="telefon" name="telefon" placeholder="Sadece rakam giriniz">
+                                <div class="invalid-feedback" id="telefonHata">Telefon sadece rakamlardan oluşmalıdır!</div>
+                            </div>
+                        </div>
+
+                        <!-- Select -->
+                        <div class="mb-3">
+                            <label for="konu" class="form-label">Mesajın Konusu <span class="text-danger">*</span></label>
+                            <select class="form-select" id="konu" name="konu">
+                                <option value="" selected disabled>Lütfen bir konu seçiniz</option>
+                                <option value="Is Teklifi">İş / Staj Teklifi</option>
+                                <option value="Proje">Proje İşbirliği</option>
+                                <option value="Sohbet">Genel Sohbet</option>
+                            </select>
+                            <div class="invalid-feedback" id="konuHata">Lütfen bir konu seçiniz!</div>
+                        </div>
+
+                        <!-- Radio Buttons -->
+                        <div class="mb-3">
+                            <label class="form-label d-block">Cinsiyetiniz <span class="text-danger">*</span></label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="cinsiyet" id="erkek" value="Erkek">
+                                <label class="form-check-label" for="erkek">Erkek</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="cinsiyet" id="kadin" value="Kadın">
+                                <label class="form-check-label" for="kadin">Kadın</label>
+                            </div>
+                            <div class="invalid-feedback d-block" id="cinsiyetHata" style="display: none !important;">Lütfen cinsiyet seçiniz!</div>
+                        </div>
+
+                        <!-- Checkbox -->
+                        <div class="mb-3">
+                            <label class="form-label d-block">Beni Nereden Buldunuz?</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="github" name="kaynak[]" value="GitHub">
+                                <label class="form-check-label" for="github">GitHub</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="linkedin" name="kaynak[]" value="LinkedIn">
+                                <label class="form-check-label" for="linkedin">LinkedIn</label>
+                            </div>
+                        </div>
+
+                        <!-- Textarea -->
+                        <div class="mb-4">
+                            <label for="mesaj" class="form-label">Mesajınız <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="mesaj" name="mesaj" rows="4" placeholder="Mesajınızı buraya yazınız..."></textarea>
+                            <div class="invalid-feedback" id="mesajHata">Mesaj alanı boş bırakılamaz!</div>
+                        </div>
+
+                        <!-- İki Farklı Buton (Ödev Şartı) -->
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end border-top pt-4">
+                            <!-- Native JS ile kontrol edilecek buton -->
+                            <button type="button" class="btn btn-outline-dark px-4" id="btnNativeJS">Kontrol Et (Native JS)</button>
+                            
+                            <!-- Vue.js ile kontrol edilecek buton -->
+                            <button type="button" class="btn btn-dark px-4" id="btnVueJS" @click="checkForm">Kontrol Et (Vue.js)</button>
+                            
+                            <button type="reset" class="btn btn-light px-4">Temizle</button>
+                        </div>
+                    </form>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-top py-4 mt-auto">
+        <div class="container text-center">
+            <p class="text-muted small mb-0">G231210064 - Web Teknolojileri Proje Ödevi</p>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

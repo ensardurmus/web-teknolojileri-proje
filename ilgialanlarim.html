@@ -21,7 +21,7 @@
 </head>
 <body>
     
-    <!-- Üst Menü -->
+    <!-- Menü Kısmı diğerlerine de ekledik öyle push yapıyoruz zaten her gün -->
     <header class="bg-white shadow-sm py-3 mb-5">
         <div class="container d-flex flex-wrap justify-content-between align-items-center">
             <h1 class="h4 mb-0 text-dark fw-bold">Muhammet Ensar Durmuş</h1>
@@ -31,6 +31,7 @@
                 <a class="nav-link text-secondary" href="sehrim.html">Şehrim</a>
                 <a class="nav-link text-secondary" href="takimimiz.html">Takımımız</a>
                 <a class="nav-link active bg-dark text-white" href="ilgialanlarim.html">İlgi Alanlarım</a>
+				<a class="nav-link text-secondary" href="iletisim.html">İletişim</a>
             </nav>
         </div>
     </header>
@@ -39,7 +40,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 
-                <!-- API Başlık ve Arama Alanı -->
+                <!-- API başlık ve arama alanı -->
                 <section class="mb-5 text-center p-4 bg-white rounded-3 shadow-sm border-top border-4 border-dark">
                     <h2 class="fw-bold mb-3">Film ve Dizi Arama Motoru</h2>
                     <p class="text-secondary mb-4">Ücretsiz API kullanılarak anlık veri çekilmektedir. İstediğiniz dizi veya filmi aratabilirsiniz.</p>
@@ -50,7 +51,7 @@
                     </div>
                 </section>
 
-                <!-- API'den Gelen Sonuçların Listeleneceği Alan -->
+                <!-- API'den gelen sonuçların listeleneceği alan -->
                 <div id="results" class="row g-4">
                     <!-- JavaScript ile çekilen veriler buraya eklenecek -->
                 </div>
@@ -68,7 +69,7 @@
     <!-- Bootstrap JS -->
     <script src="js/bootstrap.bundle.min.js"></script>
 
-    <!-- API Fetch İşlemleri -->
+    <!-- API fetch işlemleri -->
     <script>
         document.getElementById('searchBtn').addEventListener('click', function() {
             const query = document.getElementById('searchInput').value;
@@ -83,7 +84,7 @@
             // Yükleniyor mesajı
             resultsDiv.innerHTML = '<div class="col-12 text-center"><div class="spinner-border text-dark" role="status"></div><p class="mt-2">Veriler çekiliyor...</p></div>';
 
-            // TVMaze API'sine Fetch isteği atıyoruz
+            // TVMaze API'sine fetch isteği atıyoruz
             fetch(`https://api.tvmaze.com/search/shows?q=${query}`)
                 .then(response => response.json())
                 .then(data => {

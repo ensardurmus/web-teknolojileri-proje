@@ -9,17 +9,22 @@
         
         <style>
             /* Sayfanın arka planını hafif gri yaparak beyaz kartların öne çıkmasını sağlıyoruz */
+			/* Body de display:flex yapmak body elemanlarını flex container yaptık burada hizalamak kolay olsun diye */
+			/* header main footer birer flex item oluyor böylelikle yani onları alt alta dizer header içinde container da otomatik buradan
+			miras almaz */
             body {
                 background-color: #f8f9fa;
                 display: flex;
                 flex-direction: column;
                 min-height: 100vh; 
             }
+			/* flex-direction ile de aslında alt alta dizmesini söylüyoruz column diyerek normalde flex yatayda hizalar*/
         </style>
     </head>
     <body>
         
         <header class="bg-white shadow-sm py-3 mb-5">
+			<!-- flex-wrap ile ekrana sığmazsa yan yana hizalandığında alta geç dedik sıkışmasın diye -->
             <div class="container d-flex flex-wrap justify-content-between align-items-center">
                 <h1 class="h4 mb-0 text-dark fw-bold">Özgeçmiş (CV)</h1>
                 <nav class="nav nav-pills">
@@ -28,11 +33,12 @@
 					<a class="nav-link text-secondary" href="sehrim.html">Şehrim</a>
 					<a class="nav-link text-secondary" href="takimim.html">Takımım</a>
 					<a class="nav-link text-secondary" href="ilgialanlarim.html">İlgi Alanlarım</a>
+					<a class="nav-link text-secondary" href="iletisim.html">İletişim</a>
                 </nav>
             </div>
         </header>
 
-        
+        <!-- justify-content-center ile flexbox kullandık aslında sayfada yatay olarak ortalamak için-->
         <main class="container mb-5 flex-grow-1">
             <div class="row justify-content-center">
                 <div class="col-lg-8"> <!-- İçeriği ortalayıp genişliğini sayfa kadar sınırlama -->
@@ -44,6 +50,7 @@
                         
                         <article class="card border-0 shadow-sm rounded-3">
                             <div class="card-body p-4">
+								<!-- fw-bold ile yazıyı kalın yazdırdık -->
                                 <h3 class="h5 card-title text-dark fw-bold mb-1">Lisans Eğitimi</h3>
                                 <p class="card-text mb-1"><strong>Sakarya Üniversitesi (SAÜ)</strong> <span class="text-secondary">- Bilgisayar Mühendisliği</span></p>
                                 <p class="text-muted small mb-3"><em>2023 - Devam Ediyor</em></p>

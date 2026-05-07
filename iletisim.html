@@ -118,7 +118,7 @@
                             <div class="invalid-feedback" id="mesajHata">Mesaj alanı boş bırakılamaz!</div>
                         </div>
 
-                        <!-- İki Farklı Buton (Ödev Şartı) -->
+                        <!-- iki farklı buton -->
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end border-top pt-4">
                             <!-- Native JS ile kontrol edilecek buton -->
                             <button type="button" class="btn btn-outline-dark px-4" id="btnNativeJS">Kontrol Et (Native JS)</button>
@@ -142,5 +142,106 @@
     </footer>
 
     <script src="js/bootstrap.bundle.min.js"></script>
+	<script>
+        // --- ÖNCE VUE.JS YÜKLENSİN ILK NATIVEJAVASCRIPT YUKLEYİNCE HATA MESAJI VERMEDİ BÖYLE DENEYELİM ---
+        const { createApp } = Vue;
+
+        createApp({
+            methods: {
+                checkForm() {
+                    let hatalar = [];
+                    
+                    const adSoyad = document.getElementById('adSoyad').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const telefon = document.getElementById('telefon').value.trim();
+                    
+                    if(adSoyad === '') hatalar.push("Ad Soyad");
+                    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) hatalar.push("E-Posta (Geçerli bir adres girin)");
+                    if(!/^[0-9]+$/.test(telefon)) hatalar.push("Telefon (Sadece rakam kullanın)");
+                    
+                    if(hatalar.length > 0) {
+                        alert("VUE.JS SİSTEM UYARISI:\nLütfen aşağıdaki alanları kontrol ediniz:\n\n- " + hatalar.join("\n- "));
+                    } else {
+                        alert("VUE.JS: Doğrulama başarılı! Form PHP'ye gönderilmeye hazır.");
+                    }
+                }
+            }
+        }).mount('#app');
+
+        // --- SONRA NATIVE JAVASCRIPT EKLENSİN ---
+        document.getElementById('btnNativeJS').addEventListener('click', function() {
+            let isValid = true;
+
+            // Ad Soyad Kontrolü
+            const adSoyad = document.getElementById('adSoyad');
+            if (adSoyad.value.trim() === '') {
+                adSoyad.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                adSoyad.classList.remove('is-invalid');
+                adSoyad.classList.add('is-valid');
+            }
+
+            // E-Posta Kontrolü
+            const email = document.getElementById('email');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email.value)) {
+                email.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                email.classList.remove('is-invalid');
+                email.classList.add('is-valid');
+            }
+
+            // Telefon Kontrolü
+            const telefon = document.getElementById('telefon');
+            const telPattern = /^[0-9]+$/;
+            if (!telPattern.test(telefon.value)) {
+                telefon.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                telefon.classList.remove('is-invalid');
+                telefon.classList.add('is-valid');
+            }
+
+            // Konu Kontrolü
+            const konu = document.getElementById('konu');
+            if (konu.value === '') {
+                konu.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                konu.classList.remove('is-invalid');
+                konu.classList.add('is-valid');
+            }
+
+            // Cinsiyet Kontrolü
+            const erkek = document.getElementById('erkek');
+            const kadin = document.getElementById('kadin');
+            const cinsiyetHata = document.getElementById('cinsiyetHata');
+            if (!erkek.checked && !kadin.checked) {
+                cinsiyetHata.style.setProperty('display', 'block', 'important');
+                isValid = false;
+            } else {
+                cinsiyetHata.style.setProperty('display', 'none', 'important');
+            }
+
+            // Mesaj Kontrolü
+            const mesaj = document.getElementById('mesaj');
+            if (mesaj.value.trim() === '') {
+                mesaj.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                mesaj.classList.remove('is-invalid');
+                mesaj.classList.add('is-valid');
+            }
+
+            // Sonuç Bildirimi
+            if (isValid) {
+                alert("NATIVE JS KONTROLÜ: Tüm alanlar eksiksiz ve kurallara uygun!");
+            } else {
+                alert("NATIVE JS UYARISI: Lütfen kırmızı ile işaretlenmiş hatalı alanları düzeltiniz!");
+            }
+        });
+    </script>
 </body>
 </html>

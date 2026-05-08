@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap | Kişisel Web Sitem</title>
+    <link rel="stylesheet" href="indexStil.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body class="bg-light d-flex align-items-center min-vh-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card shadow-sm border-top border-4 border-dark rounded-4">
+                    <div class="card-body p-5">
+                        <div class="text-center mb-4">
+                            <h2 class="fw-bold">Yönetici Girişi</h2>
+                            <p class="text-secondary small">Lütfen SAÜ e-posta adresiniz ve numaranızla giriş yapın.</p>
+                        </div>
+                        
+                        <form action="login_kontrol.php" method="POST">
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-bold">E-Posta</label>
+                                <input type="email" class="form-control form-control-lg" id="email" name="email" required placeholder="g231210064@sakarya.edu.tr">
+                            </div>
+                            <div class="mb-4">
+                                <label for="sifre" class="form-label fw-bold">Şifre</label>
+                                <input type="password" class="form-control form-control-lg" id="sifre" name="sifre" required placeholder="Öğrenci Numaranız">
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-dark btn-lg">Giriş Yap</button>
+                            </div>
+                        </form>
+                        
+                        <div class="text-center mt-4">
+                            <a href="index.html" class="text-secondary text-decoration-none">Ana Sayfaya Dön</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

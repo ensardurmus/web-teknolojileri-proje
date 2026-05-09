@@ -23,3 +23,39 @@ h2{
 	font-size:15pt;
 
 }
+
+/* Üst kısım ilk hafta alelacele oluşturuldu ödevin ilk günü yetişsin diye son saatlerde ilk günü commit ettim */
+/* 9.Hafta güncellemesi eklendi alta animasyonlar ekledik sayfaya */
+/* Sitemdeki tüm linklere ve butonlara yumuşak bir geçiş efekti veriyorum 
+Hover (üzerine gelme) durumlarında aniden renk değiştirmesi yerine 0.3 saniyede göze hoş gelen bir geçiş yapmasını sağlıyorum. */
+a, .btn, .nav-link {
+    transition: all 0.3s ease-in-out !important;
+}
+
+/* Bootstrap kartlarımın statik durmasını istemediğim için bir transition (geçiş) süresi ayarladım. */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* Kullanıcı farenin imlecini kartların (örneğin Fenerbahçe sayfası veya film arama sayfasındaki kartlar) 
+üzerine getirdiğinde kartın Y ekseninde 8 piksel yukarı kalkmasını ve gölgesinin belirginleşmesini sağlıyorum. 
+Bu sayede tasarımım daha interaktif ve modern hissettiriyor. */
+.card:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important; 
+}
+
+/* İletişim formundaki inputlara veya açılır menülere tıklandığında (focus), 
+Bootstrap'in varsayılan mavi vurgu rengi yerine sitemin genel siyah/beyaz temasına uygun olan 
+koyu gri renginin belirmesini ayarlıyorum. */
+.form-control:focus, .form-select:focus {
+    border-color: #212529;
+    box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.25);
+}
+
+/* İlgi alanlarım (API) sayfasındaki API'den gelen film afişlerinin üst köşelerini 
+biraz daha yuvarlatıyorum ki Bootstrap kartımın border-radius yapısıyla tam uyumlu olsun ve taşma yapmasın. */
+.movie-card img {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}

@@ -148,16 +148,17 @@
         const { createApp } = Vue;
 
         createApp({
-            methods: {
+            methods: { //Methods kısmı tıklama, hesaplama gibi fonksiyonları yazdığım yer vue.js
                 checkForm() {
-                    let hatalar = [];
+                    let hatalar = [];//Hata mesajlarını buraya göndereceğim boş dizi oluşturdum
                     
                     const adSoyad = document.getElementById('adSoyad').value.trim();
                     const email = document.getElementById('email').value.trim();
                     const telefon = document.getElementById('telefon').value.trim();
                     
                     if(adSoyad === '') hatalar.push("Ad Soyad");
-                    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) hatalar.push("E-Posta (Geçerli bir adres girin)");
+                    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) hatalar.push("E-Posta (Geçerli bir adres girin)");//internetten standart regex formatları kullanıldı
+					//regex^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
                     if(!/^[0-9]+$/.test(telefon)) hatalar.push("Telefon (Sadece rakam kullanın)");
                     
                     if(hatalar.length > 0) {
@@ -170,13 +171,13 @@
         }).mount('#app');
 
         // --- SONRA NATIVE JAVASCRIPT EKLENSİN ---
-        document.getElementById('btnNativeJS').addEventListener('click', function() {
-            let isValid = true;
+        document.getElementById('btnNativeJS').addEventListener('click', function() { //addEventListener() button onclick="" ile aynı işi görür daha modern
+            let isValid = true;//formu en başta kusursuz kabul ediyoruz 
 
             // Ad Soyad Kontrolü
             const adSoyad = document.getElementById('adSoyad');
             if (adSoyad.value.trim() === '') {
-                adSoyad.classList.add('is-invalid');
+                adSoyad.classList.add('is-invalid');//form elemanına kırmızı hata çerçevesi ekleyen bootstrap komutu 
                 isValid = false;
             } else {
                 adSoyad.classList.remove('is-invalid');
@@ -185,18 +186,18 @@
 
             // E-Posta Kontrolü
             const email = document.getElementById('email');
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(email.value)) {
-                email.classList.add('is-invalid');
-                isValid = false;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;//E-posta formatını kontrol etmek için REGEX tanımı yapıyorum 
+            if (!emailPattern.test(email.value)) {//E-mail içindeki değer patterne uyuyor mu diye kontrol et eşleşmezse yanlışa git
+                email.classList.add('is-invalid');//
+                isValid = false;//Formu geçersiz yapıyorum
             } else {
-                email.classList.remove('is-invalid');
-                email.classList.add('is-valid');
+                email.classList.remove('is-invalid');//Eğer e-posta doğruysa hata classını kaldırıyorum
+                email.classList.add('is-valid');//Başarı classı ekledim bootstrap kullandığımdan yeşil görünüm verir
             }
 
             // Telefon Kontrolü
             const telefon = document.getElementById('telefon');
-            const telPattern = /^[0-9]+$/;
+            const telPattern = /^[0-9]+$/;//Sayıları REGEX olarak tanımladım telefon numarası için
             if (!telPattern.test(telefon.value)) {
                 telefon.classList.add('is-invalid');
                 isValid = false;

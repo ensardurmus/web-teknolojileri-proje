@@ -8,6 +8,7 @@ $gelenEmail = $_POST['email'] ?? '';
 $gelenSifre = $_POST['sifre'] ?? '';
 
 // Kullanıcının girdiği bilgilerin doğruluğunu kontrol ediyorum
+/// === operatörü ile hem veriyi hem veri tipini eşit mi diye kontrol ediyorum 
 if ($gelenEmail === $dogruEmail && $gelenSifre === $dogruSifre) {
     // Giriş başarılıysa kullanıcıya hoşgeldin mesajı gösteriyorum
     echo "<!DOCTYPE html>
@@ -28,9 +29,12 @@ if ($gelenEmail === $dogruEmail && $gelenSifre === $dogruSifre) {
         </div>
     </body>
     </html>";
+	//hr ile yatay çizgi oluşturdum margin y ile yukarı aşağı 4 boşluk bıraktıkmargin ile dış boşluk vermiş olduk
+	//align-items-center ile içeriği dikey ortalama yaptım min-vh-100 ile sayfa yüksekliğini ekran yüksekliğinin tamamı yaptım
 } else {
     // Giriş hatalıysa hiçbir işlem yapmadan doğrudan login sayfasına geri yönlendiriyorum
     header("Location: login.html");
+	//kodun devam etmesini durdurdum
     exit();
 }
 ?>

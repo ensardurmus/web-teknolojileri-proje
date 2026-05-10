@@ -2,14 +2,15 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--Mobil uyumluluk kısmını sağlayan satır-->
     <title>Giriş Yap | Kişisel Web Sitem</title>
     <link rel="stylesheet" href="indexStil.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body class="bg-light d-flex align-items-center min-vh-100">
+	<!--container yapısı ile sayfanın içeriğini ortalayıp sağ-sol boşluk bıraktım ekrana göre genişliği sınırladım responsive sistem için-->
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center"><!--Satır oluşturup ortaladım-->
             <div class="col-md-5">
                 <div class="card shadow-sm border-top border-4 border-dark rounded-4">
                     <div class="card-body p-5">
@@ -20,7 +21,7 @@
                         
                         <form action="login_kontrol.php" method="POST">
                             <div class="mb-3">
-                                <label for="email" class="form-label fw-bold">E-Posta</label>
+                                <label for="email" class="form-label fw-bold">E-Posta</label><!-- e-mail burada id -->
                                 <input type="email" class="form-control form-control-lg" id="email" name="email" required placeholder="g231210064@sakarya.edu.tr">
                             </div>
                             <div class="mb-4">

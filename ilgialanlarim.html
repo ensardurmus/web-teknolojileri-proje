@@ -72,12 +72,12 @@
 
     <!-- API fetch işlemleri -->
     <script>
-        document.getElementById('searchBtn').addEventListener('click', function() {
-            const query = document.getElementById('searchInput').value;
-            const resultsDiv = document.getElementById('results');
+        document.getElementById('searchBtn').addEventListener('click', function() {//addEventListener modern onclick aslında
+            const query = document.getElementById('searchInput').value;// Sorgu için searchInput ID li kısmın değerini atadım sorgu değişkenine 
+            const resultsDiv = document.getElementById('results');// Sorgu sonucu için tanımladım 
             
             // Eğer boş arama yapılırsa
-            if(query.trim() === '') {
+            if(query.trim() === '') {//trim() fonk boşlukları siler boş arama yapıldıysa da aşağıdaki mesajı gösteririz
                 resultsDiv.innerHTML = '<div class="col-12 text-center text-danger"><p>Lütfen bir film veya dizi adı girin.</p></div>';
                 return;
             }
@@ -85,11 +85,11 @@
             // Yükleniyor mesajı
             resultsDiv.innerHTML = '<div class="col-12 text-center"><div class="spinner-border text-dark" role="status"></div><p class="mt-2">Veriler çekiliyor...</p></div>';
 
-            // TVMaze API'sine fetch isteği atıyoruz
-            fetch(`https://api.tvmaze.com/search/shows?q=${query}`)
-                .then(response => response.json())
+            // TVMaze API'sine fetch isteği (sunucuya istek) atıyoruz
+            fetch(`https://api.tvmaze.com/search/shows?q=${query}`)// q= kısmı kullanıcının girdisi openweatherda şehir ismi gibi 
+                .then(response => response.json())//API'den gelen ham response u javaScrpipt verisine dönüştürüyoruz
                 .then(data => {
-                    resultsDiv.innerHTML = ''; // Önceki sonuçları temizle
+                    resultsDiv.innerHTML = ''; // Önceki sonuçları temizle yeni aramalar için
                     
                     if(data.length === 0) {
                         resultsDiv.innerHTML = '<div class="col-12 text-center text-muted"><p>Aradığınız kriterlere uygun sonuç bulunamadı.</p></div>';
@@ -97,12 +97,14 @@
                     }
 
                     // Gelen her bir sonuç için Bootstrap Kartı oluştur
-                    data.forEach(item => {
+                    data.forEach(item => {//API'den gelen her sonucu gezmek için 
                         const show = item.show;
-                        const imageUrl = show.image ? show.image.medium : 'https://via.placeholder.com/210x295?text=Gorsel+Yok';
+                        const imageUrl = show.image ? show.image.medium : 'https://via.placeholder.com/210x295?text=Gorsel+Yok';// Görsel varsa onu koy yoksa görsel yok koymak için
                         const summary = show.summary ? show.summary.substring(0, 100) + '...' : 'Açıklama bulunmuyor.';
+						//açıklamayı 100 karakterle kısıtlamak için kullandım substring() fonksiyonunu 
                         const rating = show.rating.average ? show.rating.average : 'Bilinmiyor';
 
+						//Bootstrap kartını js ile oluşturduk
                         const cardHTML = `
                             <div class="col-md-4">
                                 <div class="card border-0 shadow-sm rounded-3 h-100 movie-card">
@@ -116,7 +118,7 @@
                                 </div>
                             </div>
                         `;
-                        resultsDiv.innerHTML += cardHTML;
+                        resultsDiv.innerHTML += cardHTML;// Her kart tek tek ekrana ekleniyor
                     });
                 })
                 .catch(error => {
